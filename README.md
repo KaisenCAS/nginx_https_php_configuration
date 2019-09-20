@@ -16,4 +16,18 @@ And add this file in /etc/nginx/sites-available folder, and create symbolic link
 
 sudo ln -s /etc/nginx/sites-availbale/thisfile /etc/nginx/sites-enabled for activate your vhost. 
 
+Testing this file with this PHP code, create file in /var/www/html (or your directory choice with www-data owner) : 
+
+<?
+phpinfo();
+?>
+
+All PHP info should be displayed, otherwise check the php7.3-fpm.sock in the /var/run/php folder.
+
+If the .sock is not present, start the service with the command :
+
+sudo systemctl start php7.3-fpm
+
+
+
 
